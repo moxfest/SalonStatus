@@ -1,0 +1,19 @@
+$bar-width: 20%;
+
+.layout {
+	@apply relative flex-col ;
+	min-height: 100vh;
+	> div:first-child {
+		@apply border-b border-b-gray-800 flex justify-center ;
+	}
+
+	> .center {
+		@apply min-h-screen grow border-b border-b-gray-800;
+
+	}
+
+	> div:last-child {
+		@apply right-0 shrink;
+
+	}
+}

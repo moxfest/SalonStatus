@@ -1,0 +1,9 @@
+.footer {
+	@apply p-layout flex justify-around text-white;
+	font-family: 'Cormorant Garamond', serif;
+	font-weight: 500;
+
+	ul li:first-child{
+		@apply text-2lg mb-2;
+	}
+}
