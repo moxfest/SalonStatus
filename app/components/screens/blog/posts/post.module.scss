@@ -1,0 +1,11 @@
+.textPost{
+  @apply  overflow-y-hidden;
+  .date{
+    color:purple;
+  }
+}
+.post{
+
+  @apply border-white border-2 relative lg:w-384 sm:w-320 h-500 lg:h-444 overflow-hidden;
+
+}

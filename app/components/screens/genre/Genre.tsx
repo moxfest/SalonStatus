@@ -1,4 +1,4 @@
-import { FC } from 'react'
+ import { FC } from 'react'
 import { IGenrePage } from './genre.types'
 import Catalog from '../templates/catalog-movies/Catalog'
 

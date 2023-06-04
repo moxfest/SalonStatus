@@ -10,7 +10,7 @@ const Logo: FC = () => {
 
 	return (
 		<Link href="/">
-			<a className="px-layout block text-4xl text-white">
+			<a className=" block text-4xl text-white">
 				{/*<Image*/}
 				{/*	comp={}*/}
 				{/*	width={247}*/}

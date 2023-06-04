@@ -15,23 +15,13 @@ const firstMenu: IMenu = {
 		},
 		{
 			icon: 'AiOutlineEye',
-			link: '/reviews',
-			title: 'Отзывы',
+			link: '/blog',
+			title: 'Новости',
 		},
 		{
 			icon: 'AiOutlineMoneyCollect',
 			link: '/price',
 			title: 'Цены',
-		},
-		{
-			icon: 'AiOutlineContacts',
-			link: '/contact',
-			title: 'Контакты',
-		},
-		{
-			icon: 'AiOutlineForm',
-			link: '/auth',
-			title: 'Запись',
 		},
 
 	],

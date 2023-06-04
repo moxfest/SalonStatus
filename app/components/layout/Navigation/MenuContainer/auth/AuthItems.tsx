@@ -17,7 +17,7 @@ const AuthItems: FC = () => {
 				<>
 					<MenuItem
 						item={{
-							icon: 'MdSettings',
+							icon: 'AiOutlineSetting',
 							link: '/profile',
 							title: 'Profile',
 						}}
@@ -25,13 +25,13 @@ const AuthItems: FC = () => {
 					<LogoutButton />
 				</>
 			) : (
-				<MenuItem item={{ icon: 'MdLogin', link: '/auth', title: 'Login' }} />
+				<MenuItem item={{ icon: 'AiOutlineLogin', link: '/auth', title: 'Login' }} />
 			)}
 
 			{user?.isAdmin && (
 				<MenuItem
 					item={{
-						icon: 'MdOutlineLock',
+						icon: 'AiOutlineLock',
 						link: getAdminHomeUrl(),
 						title: 'Admin panel',
 					}}

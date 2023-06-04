@@ -6,11 +6,11 @@
 	}
 
 	.ul {
-		@apply flex justify-around;
+		@apply flex justify-around flex-wrap;
 		> li {
-			@apply px-8 border-b-4 border-b-transparent transition-colors;
+			@apply px-0 lg:px-4 mb-2 lg:mb-0 border-b-4 border-b-transparent transition-colors px-0 lg:mx-12;
 			> a {
-				@apply flex items-center text-gray-600 px-3 cursor-pointer mb-2;
+				@apply flex items-center text-gray-600 px-2 cursor-pointer mb-2;
 
 				> span {
 					@apply ml-3 text-lg hover:text-white;

@@ -11,7 +11,7 @@ const DynamicGenreMenu = dynamic(() => import('./genres/GenreMenu'), {
 const MenuContainer: FC = () => {
 	return (
 		<div className={''}>
-			<Menu menu={menus[0]} />
+			<Menu menu={{ title: 'General', items: menus[0].items }} />
 			{/*<DynamicGenreMenu />*/}
 			{/*<Menu menu={{ title: 'General', items: [] }} />*/}
 		</div>

@@ -29,6 +29,14 @@ module.exports = {
 		},
 
 		extend: {
+			width: {
+				'320': '320px',
+				'384': '384px',
+			},
+			height: {
+				'444': '444px',
+				'500': '500px',
+			},
 			spacing: {
 				0.5: '0.12rem',
 				layout: '2.75rem',
