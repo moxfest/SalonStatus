@@ -25,6 +25,7 @@ export const AuthService = {
 		return response
 	},
 	async login(email: string, password: string) {
+
 		const response = await axios.post<IAuthResponse>(
 			`${API_URL}${getAuthUrl('/login')}`,
 			{

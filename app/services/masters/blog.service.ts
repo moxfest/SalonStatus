@@ -4,11 +4,13 @@ import { IActorEditInput } from '@/components/screens/admin/actor/actor-edit.int
 
 import { IActor } from '@/shared/types/movie.types'
 
-import { getActorsUrl } from '@/configs/api.config'
+import {getActorsUrl, getPostsUrl} from '@/configs/api.config'
+import { IPost } from '@/shared/types/blog.types'
 
-export const ActorService = {
+
+export const BlogService = {
 	async getBySlug(slug: string) {
-		return axiosClassic.get<IActor>(getActorsUrl(`/by-slug/${slug}`))
+		return axiosClassic.get<IPost>(getActorsUrl(`/add${slug}`))
 	},
 
 	async create() {
@@ -23,9 +25,8 @@ export const ActorService = {
 		return axios.delete<string>(getActorsUrl(`/${_id}`))
 	},
 
-
 	async getAll(searchTerm?: string) {
-		return axiosClassic.get<IActor[]>(getActorsUrl(``), {
+		return axiosClassic.get<IPost[]>(getPostsUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm,
@@ -33,7 +34,6 @@ export const ActorService = {
 				: {},
 		})
 	},
-
 
 	async getById(_id: string) {
 		return axios.get<IActorEditInput>(getActorsUrl(`/${_id}`))

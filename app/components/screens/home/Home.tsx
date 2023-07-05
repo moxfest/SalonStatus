@@ -27,37 +27,37 @@ const Home: FC<IHome> = ({slides, trendingMovies, actors}) => {
             bigPoster: 'https://beauty.firmika.ru/data/texts_img/436/32febe77161d41b0f24fa2e0f12173fb.jpg',
             title: 'Парикмахерские услуги',
             subTitle: '',
-            link: 'https://img3.akspic.ru/crops/6/5/1/6/5/156156/156156-sostav-krasota-salon_krasoty-vizazhist-volosy-4096x2304.jpg'
+            link: '/masters'
         }, {
             _id: '1',
             bigPoster: 'https://iris-salon.ru/assets/images/nails/manicure_apparatnii.jpg',
             title: 'Маникюр',
             subTitle: '',
-            link: 'https://img3.akspic.ru/crops/6/5/1/6/5/156156/156156-sostav-krasota-salon_krasoty-vizazhist-volosy-4096x2304.jpg'
+            link: '/masters'
         }, {
             _id: '1',
             bigPoster: 'https://irecommend.ru/sites/default/files/product-images/213525/F4WYhM4fYfphHHOIVZKmkQ.jpg',
             title: 'Педикюр',
             subTitle: '',
-            link: 'https://irecommend.ru/sites/default/files/product-images/213525/F4WYhM4fYfphHHOIVZKmkQ.jpg'
+            link: '/masters'
         }, {
             _id: '1',
             bigPoster: 'https://zdorovie7i.ru/uploads/image/3f7209ad7c9c6e2a266839ac2ade0266.png',
             title: 'Косметология',
             subTitle: 'string',
-            link: 'https://zdorovie7i.ru/uploads/image/3f7209ad7c9c6e2a266839ac2ade0266.png'
+            link: '/masters'
         }, {
             _id: '1',
             bigPoster: 'https://img.freepik.com/premium-photo/spa-concept-white-stone-red-candle-rose-liquid-soap-towel-flowers-on-green-leaves_63726-325.jpg',
             title: 'Эстетист по телу',
             subTitle: 'string',
-            link: 'https://img.freepik.com/premium-photo/spa-concept-white-stone-red-candle-rose-liquid-soap-towel-flowers-on-green-leaves_63726-325.jpg'
+            link: '/masters'
         }, {
             _id: '1',
             bigPoster: 'https://okean.org/uploads/images/articles/3206/1032745532.jpg',
             title: 'Визаж',
             subTitle: '',
-            link: 'https://okean.org/uploads/images/articles/3206/1032745532.jpg'
+            link: '/masters'
         },
     ]
     const trendingMovies1 = [{
@@ -127,7 +127,6 @@ const Home: FC<IHome> = ({slides, trendingMovies, actors}) => {
             description="main Salon status"
         >
 
-
             <div className={styles.home}>
                 <div className={'relative'}>
                     <Image
@@ -178,7 +177,8 @@ const Home: FC<IHome> = ({slides, trendingMovies, actors}) => {
                     title='Наши работы'
                     className="text-white text-4xl lg:text-6xl z-1 text-shadow shadow-black mb-8"
                 />
-                <div className={'grid grid-cols-3 grid-rows-3  gap-4 '}>
+
+                <div className={'grid grid-cols-3 grid-rows-3  gap-4'}>
                     <Image
                         src={rabota1}
                         width={430}
@@ -222,6 +222,7 @@ const Home: FC<IHome> = ({slides, trendingMovies, actors}) => {
                         alt="background"
                     />
                 </div>
+
             </div>
 
 

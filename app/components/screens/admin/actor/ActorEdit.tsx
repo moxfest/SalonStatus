@@ -15,6 +15,14 @@ import Heading from '@/ui/heading/Heading'
 
 import { Meta } from '@/utils/meta'
 import generateSlug from '@/utils/string/generateSlug'
+import {stripHtml} from "string-strip-html";
+import dynamic from "next/dynamic";
+const DynamicTextEditor = dynamic(
+	() => import('@/ui/form-elements/TextEditor'),
+	{
+		ssr: false,
+	}
+)
 
 const ActorEdit: FC = () => {
 	const {
@@ -29,27 +37,45 @@ const ActorEdit: FC = () => {
 	})
 
 	const { isLoading, onSubmit } = useActorEdit(setValue)
-
+	const isLoading1 =	false
 	return (
-		<Meta title="Edit actor">
+		<Meta title="Изменение Поста">
 			<AdminNavigation />
-			<Heading title="Edit actor" />
-			{isLoading ? (
+			<Heading title="Изменение Поста" />
+			{isLoading1 ? (
 				<SkeletonLoader count={3} />
 			) : (
 				<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
 					<div className={formStyles.fields}>
 						<Field
-							{...register('name', {
-								required: 'Name is required!',
+							{...register('title', {
+								required: 'Название обязательно',
 							})}
-							placeholder="Name"
-							error={errors.name}
+							placeholder="Название поста"
+							error={errors.title}
 						/>
-						<SlugField
-							generate={() => setValue('slug', generateSlug(getValues('name')))}
-							register={register}
-							error={errors.slug}
+						<Controller
+							name="description"
+							control={control}
+							defaultValue=""
+							render={({
+										 field: { value, onChange },
+										 fieldState: { error },
+									 }) => (
+								<DynamicTextEditor
+									placeholder="описание"
+									onChange={onChange}
+									error={error}
+									value={value}
+								/>
+							)}
+							rules={{
+								validate: {
+									required: (v) =>
+										(v && stripHtml(v).result.length > 0) ||
+										'Описание обязательно!',
+								},
+							}}
 						/>
 						<Controller
 							name="photo"
@@ -60,20 +86,20 @@ const ActorEdit: FC = () => {
 								fieldState: { error },
 							}) => (
 								<UploadField
-									placeholder="Photo"
+									placeholder="Фото"
 									error={error}
-									folder="actors"
+									folder="posts"
 									image={value}
 									onChange={onChange}
 								/>
 							)}
 							rules={{
-								required: 'Photo is required!',
+								required: 'Фото обязательно!',
 							}}
 						/>
 					</div>
 
-					<Button>Update</Button>
+					<Button>Обновить</Button>
 				</form>
 			)}
 		</Meta>

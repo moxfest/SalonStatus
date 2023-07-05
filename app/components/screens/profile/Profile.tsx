@@ -49,8 +49,9 @@ const Profile: FC = () => {
 	}
 
 	return (
-		<Meta title="Profile">
-			<Heading title="Profile" />
+		<Meta title="Профиль">
+			<div className={'container pt-10'}>
+			<Heading title="Настройки профиля" />
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
 				{isLoading ? (
 					<SkeletonLoader count={2} />
@@ -62,8 +63,9 @@ const Profile: FC = () => {
 					/>
 				)}
 
-				<Button>Update</Button>
+				<Button>Обновить данные</Button>
 			</form>
+			</div>
 		</Meta>
 	)
 }

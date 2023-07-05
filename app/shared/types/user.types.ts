@@ -1,7 +1,8 @@
 export interface IUser {
-	_id: string
+	id: string
 	email: string
 	password: string
 	createdAt: string
-	isAdmin: boolean
+	updatedAt: string
+	role: {id:number,value:string,description:string}
 }

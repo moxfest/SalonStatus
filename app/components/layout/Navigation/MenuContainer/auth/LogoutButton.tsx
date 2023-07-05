@@ -15,8 +15,8 @@ const LogoutButton: FC = () => {
 	return (
 		<li>
 			<a onClick={logoutHandler}>
-				<MaterialIcon name="AiOutlineInstagram" />
-				<span>Logout</span>
+				<MaterialIcon name="AiOutlineLogout" />
+				<span>Выход</span>
 			</a>
 		</li>
 	)

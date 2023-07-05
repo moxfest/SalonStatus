@@ -7,7 +7,7 @@ import { siteName, titleMerge } from '@/configs/seo.config'
 import { ISeo } from './meta.types'
 import { MetaNoIndex } from '.'
 
-import logoImage from '@/assets/images/logo.svg'
+
 
 export const Meta: FC<ISeo> = ({
 	title,
@@ -33,7 +33,7 @@ export const Meta: FC<ISeo> = ({
 					<meta property='og:locale' content='en' />
 					<meta property='og:title' content={titleMerge(title)} />
 					<meta property='og:url' content={currentUrl} />
-					<meta property='og:image' content={image || logoImage} />
+					<meta property='og:image' content={image || undefined} />
 					<meta property='og:site_name' content={siteName} />
 					<meta
 						property='og:description'

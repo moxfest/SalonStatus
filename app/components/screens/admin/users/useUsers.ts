@@ -24,8 +24,8 @@ export const useUsers = () => {
 			select: ({ data }) =>
 				data.map(
 					(user): ITableItem => ({
-						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
+						_id: user.id,
+						editUrl: getAdminUrl(`user/edit/${user.id}`),
 						items: [user.email, convertMongoDate(user.createdAt)],
 					})
 				),
@@ -41,13 +41,14 @@ export const useUsers = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete user',
-		(userId: string) => UserService.deleteUser(userId),
+		(userId: string) => {
+			console.log(userId);return UserService.deleteUser(userId);},
 		{
 			onError(error) {
-				toastError(error, 'Delete user')
+				toastError(error, 'Удаление пользовател')
 			},
 			onSuccess() {
-				toastr.success('Delete user', 'delete was successful')
+				toastr.success('Удаление пользователя', 'Удалено успешно')
 				queryData.refetch()
 			},
 		}

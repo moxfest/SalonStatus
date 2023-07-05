@@ -18,7 +18,7 @@ import styles from '../Admin.module.scss'
 
 const PopularMovie: FC = () => {
 	const { isLoading, data: movie } = useQuery(
-		'Most popular movie in admin',
+		'Количество постов',
 		() => MovieService.getMostPopularMovies(),
 		{
 			select: (data): IMovie => data[0],
@@ -27,7 +27,7 @@ const PopularMovie: FC = () => {
 
 	return (
 		<div className={cn(styles.block, styles.popular)}>
-			<SubHeading title="The most popular movie" />
+			<SubHeading title="" />
 			{isLoading ? (
 				<SkeletonLoader className="h-48" />
 			) : (

@@ -39,13 +39,13 @@ const GenreEdit: FC = () => {
 	})
 
 	const { isLoading, onSubmit } = useGenreEdit(setValue)
-
+	const isLoading1 =	false
 	return (
 		<Meta title="Edit genre">
 			<AdminNavigation />
 			<Heading title="Edit genre" />
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
-				{isLoading ? (
+				{isLoading1 ? (
 					<SkeletonLoader count={3} />
 				) : (
 					<>

@@ -1,10 +1,13 @@
 import {FC} from 'react';
+import PostItem from "@/screens/blog/posts/PostItem";
+import {IPost} from "@/shared/types/blog.types";
 
-const Blog: FC = () => {
+
+const Blog: FC<{posts:IPost}> = ({posts}) => {
+
     return (
         <div>
-            Blog
-
+            <PostItem post={posts}/>
         </div>
     );
 };

@@ -9,7 +9,7 @@ const Layout: FC = ({ children }) => {
 	return (
 		<div className={styles.layout}>
 			<Navigation />
-			<div className={styles.center}>{children}</div>
+			<div className={styles.center+' '}>{children}</div>
 			<Footer />
 		</div>
 	)

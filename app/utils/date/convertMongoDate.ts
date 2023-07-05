@@ -1,3 +1,7 @@
 export const convertMongoDate = (date: string) => {
-	return new Date(date).toLocaleDateString('ru')
+const dateee=new Date(date)
+	const dateString = dateee.toLocaleDateString('ru', );
+	const timeString = dateee.toLocaleTimeString(['ru-RU'], );
+	console.log('hello')
+	return dateString
 }

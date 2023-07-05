@@ -4,23 +4,19 @@ import { INavItem } from './admin-navigation.interface'
 
 export const navItems: INavItem[] = [
 	{
-		title: 'Statistics',
+		title: 'Статистика',
 		link: getAdminHomeUrl(),
 	},
 	{
-		title: 'Users',
+		title: 'Пользователи',
 		link: getAdminUrl('users'),
 	},
 	{
-		title: 'Movies',
-		link: getAdminUrl('movies'),
+		title: 'Посты',
+		link: getAdminUrl('posts'),
 	},
 	{
-		title: 'Actors',
-		link: getAdminUrl('actors'),
-	},
-	{
-		title: 'Genres',
-		link: getAdminUrl('genres'),
+		title: 'Записи',
+		link: getAdminUrl('records'),
 	},
 ]

@@ -37,4 +37,4 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 	)
 }
 
-export default AuthProvider
+export default AuthProvider;

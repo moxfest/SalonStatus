@@ -10,10 +10,12 @@ import Statistics from './Statistics/Statistics'
 const Admin: FC = () => {
 	return (
 		<Meta title="Admin panel">
+
 			<AdminNavigation />
-			<Heading title="Some statistics" />
+			<Heading title="Статистика сайта" />
 
 			<Statistics />
+
 		</Meta>
 	)
 }

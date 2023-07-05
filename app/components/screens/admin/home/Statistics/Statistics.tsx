@@ -9,7 +9,6 @@ const Statistics: FC = () => {
 	return (
 		<div className={styles.statistics}>
 			<CountUsers />
-			<PopularMovie />
 		</div>
 	)
 }

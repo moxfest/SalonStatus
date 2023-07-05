@@ -35,7 +35,7 @@ const UserEdit: FC = () => {
 							isPasswordRequired={false}
 						/>
 						<Controller
-							name="isAdmin"
+							name="role"
 							control={control}
 							render={({ field }) => (
 								<button
@@ -45,14 +45,14 @@ const UserEdit: FC = () => {
 									}}
 									className="text-link block mb-7"
 								>
-									{field.value ? 'Make it regular user' : 'Make it admin'}
+									{field.value ? 'Сделать его пользователем' : 'Сделать его Администратором'}
 								</button>
 							)}
 						/>
 					</>
 				)}
 
-				<Button>Update</Button>
+				<Button>Обновить</Button>
 			</form>
 		</Meta>
 	)

@@ -8,6 +8,7 @@ import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
 import Heading from '@/ui/heading/Heading'
 
 import { Meta } from '@/utils/meta'
+import {usePosts} from "@/screens/blog/posts/usePosts";
 
 const ActorList: FC = () => {
 	const {
@@ -20,9 +21,9 @@ const ActorList: FC = () => {
 	} = useActors()
 
 	return (
-		<Meta title="Actors">
+		<Meta title="Посты">
 			<AdminNavigation />
-			<Heading title="Actors" />
+			<Heading title="Посты" />
 			<AdminHeader
 				onClick={createAsync}
 				handleSearch={handleSearch}
@@ -30,7 +31,7 @@ const ActorList: FC = () => {
 			/>
 			<AdminTable
 				tableItems={data || []}
-				headerItems={['Name', 'Count movies']}
+				headerItems={['Загаловок', 'Дата']}
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
 			/>

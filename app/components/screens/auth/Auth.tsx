@@ -1,5 +1,5 @@
 import styles from './Auth.module.scss'
-import { FC, useState } from 'react'
+import {FC, useEffect, useState} from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import AuthFields from '@/components/shared/user/AuthFields'
@@ -13,6 +13,7 @@ import { Meta } from '@/utils/meta'
 
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
+import {useRouter} from "next/router";
 
 const Auth: FC = () => {
 	useAuthRedirect()
@@ -43,7 +44,7 @@ const Auth: FC = () => {
 		<Meta title="Auth">
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<Heading title="Auth" className="mb-6" />
+					<Heading title="Вход" className="mb-6" />
 					<AuthFields register={registerInput} formState={formState} />
 
 					<div className={styles.buttons}>
@@ -52,14 +53,14 @@ const Auth: FC = () => {
 							onClick={() => setType('login')}
 							disabled={isLoading}
 						>
-							Login
+							Войти
 						</Button>
 						<Button
 							type="submit"
 							onClick={() => setType('register')}
 							disabled={isLoading}
 						>
-							Register
+							Зарегистрироваться
 						</Button>
 					</div>
 				</form>

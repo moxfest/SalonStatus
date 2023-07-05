@@ -19,7 +19,7 @@ export const useMovies = () => {
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const queryData = useQuery(
-		['movie list', debouncedSearch],
+		['record list', debouncedSearch],
 		() => MovieService.getMovies(debouncedSearch),
 		{
 			select: ({ data }) =>
@@ -35,7 +35,7 @@ export const useMovies = () => {
 					})
 				),
 			onError(error) {
-				toastError(error, 'movie list')
+				toastError(error, 'ошибка запроса записи')
 			},
 		}
 	)
@@ -47,14 +47,14 @@ export const useMovies = () => {
 	const { push } = useRouter()
 
 	const { mutateAsync: createAsync } = useMutation(
-		'create movie',
+		'create record',
 		() => MovieService.create(),
 		{
 			onError(error) {
-				toastError(error, 'Create movie')
+				toastError(error, 'ошибка запроса записи')
 			},
 			onSuccess({ data: _id }) {
-				toastr.success('Create movie', 'create was successful')
+				toastr.success('Create record', 'create was successful')
 				push(getAdminUrl(`movie/edit/${_id}`))
 			},
 		}
@@ -65,10 +65,10 @@ export const useMovies = () => {
 		(movieId: string) => MovieService.delete(movieId),
 		{
 			onError(error) {
-				toastError(error, 'Delete movie')
+				toastError(error, 'Удаление записи')
 			},
 			onSuccess() {
-				toastr.success('Delete movie', 'delete was successful')
+				toastr.success('Удаление записи', 'delete was successful')
 				queryData.refetch()
 			},
 		}

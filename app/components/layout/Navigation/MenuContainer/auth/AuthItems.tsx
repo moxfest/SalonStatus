@@ -13,30 +13,31 @@ const AuthItems: FC = () => {
 
 	return (
 		<>
+			{user?.email && (
+			<MenuItem
+				item={{
+					icon: 'AiOutlineLock',
+					link: getAdminHomeUrl(),
+					title: 'Админ панель',
+				}}
+			/>
+		)}
 			{user ? (
 				<>
 					<MenuItem
 						item={{
 							icon: 'AiOutlineSetting',
 							link: '/profile',
-							title: 'Profile',
+							title: 'Профиль',
 						}}
 					/>
 					<LogoutButton />
 				</>
 			) : (
-				<MenuItem item={{ icon: 'AiOutlineLogin', link: '/auth', title: 'Login' }} />
+				<MenuItem item={{ icon: 'AiOutlineLogin', link: '/auth', title: 'Вход/Регистрация' }} />
 			)}
 
-			{user?.isAdmin && (
-				<MenuItem
-					item={{
-						icon: 'AiOutlineLock',
-						link: getAdminHomeUrl(),
-						title: 'Admin panel',
-					}}
-				/>
-			)}
+
 		</>
 	)
 }

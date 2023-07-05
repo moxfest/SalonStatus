@@ -4,12 +4,13 @@ import { SubmitHandler, UseFormSetValue } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
 import { toastr } from 'react-redux-toastr'
 
-import { ActorService } from '@/services/actor/actor.service'
+
 
 import { toastError } from '@/utils/api/withToastrErrorRedux'
 import { getKeys } from '@/utils/object/getKeys'
 
 import { getAdminUrl } from '@/configs/url.config'
+import {BlogService} from "@/services/blog/blog.service";
 
 export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
 	const { query, push } = useRouter()
@@ -17,8 +18,8 @@ export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
 	const actorId = String(query.id)
 
 	const { isLoading } = useQuery(
-		['actor', actorId],
-		() => ActorService.getById(actorId),
+		['post', actorId],
+		() => BlogService.getById(actorId),
 		{
 			onSuccess({ data }) {
 				getKeys(data).forEach((key) => {
@@ -26,22 +27,22 @@ export const useActorEdit = (setValue: UseFormSetValue<IActorEditInput>) => {
 				})
 			},
 			onError(error) {
-				toastError(error, 'Get actor')
+				toastError(error, 'Получение постов')
 			},
 			enabled: !!query.id,
 		}
 	)
 
 	const { mutateAsync } = useMutation(
-		'update actor',
-		(data: IActorEditInput) => ActorService.update(actorId, data),
+		'обновление постов',
+		(data: IActorEditInput) => BlogService.update(actorId, data),
 		{
 			onError(error) {
-				toastError(error, 'Update actor')
+				toastError(error, 'Обновление поста')
 			},
 			onSuccess() {
-				toastr.success('Update actor', 'update was successful')
-				push(getAdminUrl('actors'))
+				toastr.success('Обновление поста', 'Обновление прошло успешно')
+				push(getAdminUrl('posts'))
 			},
 		}
 	)

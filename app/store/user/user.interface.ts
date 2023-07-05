@@ -2,7 +2,7 @@ import { IUser } from '@/shared/types/user.types'
 
 export interface IUserState {
 	email: string
-	isAdmin: boolean
+	role: {id:number,value:string,description:string}
 }
 
 export interface ITokens {
@@ -21,7 +21,5 @@ export interface InterfaceEmailPassword {
 }
 
 export interface IAuthResponse extends ITokens {
-	user: IUser & {
-		isAdmin: boolean
-	}
+	user: IUser
 }

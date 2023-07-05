@@ -2,14 +2,14 @@ import ListBlog from '@/components/screens/blog/ListBlog'
 
 import {GetServerSideProps, GetStaticPaths, GetStaticProps, InferGetServerSidePropsType, NextPage} from "next";
 
-import {BlogService} from "@/services/blog/blog.service";
 import {IPost} from "@/shared/types/blog.types";
+import Record from "@/screens/record/record";
 
 
 
 
-const ListBlogPage: NextPage<{posts:IPost[]}> = ({posts}) => {
-    return <ListBlog posts={posts}/>
+const RecordPage: NextPage<{posts:IPost[]}> = ({posts}) => {
+    return <Record />
 }
 // export const getStaticPaths: GetStaticPaths = async () => {
 //     try {
@@ -70,5 +70,5 @@ const ListBlogPage: NextPage<{posts:IPost[]}> = ({posts}) => {
 //             // notFound: true,
 //         }
 //     }
-//}
-export default ListBlogPage
+// }
+export default RecordPage;

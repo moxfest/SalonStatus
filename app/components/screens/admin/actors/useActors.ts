@@ -7,30 +7,33 @@ import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-import { ActorService } from '@/services/actor/actor.service'
+
 
 import { toastError } from '@/utils/api/withToastrErrorRedux'
 
 import { getAdminUrl } from '@/configs/url.config'
+import {BlogService} from "@/services/blog/blog.service";
+import {convertMongoDate} from "@/utils/date/convertMongoDate";
+import generateSlug from "@/utils/string/generateSlug";
 
 export const useActors = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const queryData = useQuery(
-		['actor list', debouncedSearch],
-		() => ActorService.getAll(debouncedSearch),
+		['posts list', debouncedSearch],
+		() => BlogService.getAll(debouncedSearch),
 		{
 			select: ({ data }) =>
 				data.map(
 					(actor): ITableItem => ({
-						_id: actor._id,
-						editUrl: getAdminUrl(`actor/edit/${actor._id}`),
-						items: [actor.name, String(actor.countMovies)],
+						_id: String(actor.id),
+						editUrl: getAdminUrl(`post/edit/${actor.id?actor.id:generateSlug('')}`),
+						items: [actor.title, convertMongoDate(actor.created_at)],
 					})
 				),
 			onError(error) {
-				toastError(error, 'actor list')
+				toastError(error, 'список постов')
 			},
 		}
 	)
@@ -43,27 +46,27 @@ export const useActors = () => {
 
 	const { mutateAsync: createAsync } = useMutation(
 		'create actor',
-		() => ActorService.create(),
+		() => BlogService.create(),
 		{
 			onError(error) {
-				toastError(error, 'Create actor')
+				toastError(error, 'Создание поста')
 			},
-			onSuccess({ data: _id }) {
-				toastr.success('Create actor', 'create was successful')
-				push(getAdminUrl(`actor/edit/${_id}`))
+			onSuccess({ data }) {
+				toastr.success('Создание поста', 'прошло успешно')
+				push(getAdminUrl(`post/edit/${data.id}`))
 			},
 		}
 	)
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		'delete actor',
-		(actorId: string) => ActorService.delete(actorId),
+		'delete post',
+		(actorId: string) => BlogService.delete(actorId),
 		{
 			onError(error) {
-				toastError(error, 'Delete actor')
+				toastError(error, 'удаление поста')
 			},
 			onSuccess() {
-				toastr.success('Delete actor', 'delete was successful')
+				toastr.success('удаление поста', 'удаление поста успешно')
 				queryData.refetch()
 			},
 		}

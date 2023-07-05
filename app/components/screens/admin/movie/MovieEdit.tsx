@@ -39,12 +39,12 @@ const MovieEdit: FC = () => {
 	const { onSubmit, isLoading } = useMovieEdit(setValue)
 	const { data: genres, isLoading: isGenresLoading } = useAdminGenres()
 	const { data: actors, isLoading: isActorsLoading } = useAdminActors()
-
+const isLoading1=false
 	return (
 		<Meta title="Edit movie">
 			<AdminNavigation />
 			<Heading title="Edit movie" />
-			{isLoading ? (
+			{isLoading1 ? (
 				<SkeletonLoader count={5} />
 			) : (
 				<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>

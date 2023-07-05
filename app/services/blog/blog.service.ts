@@ -4,28 +4,29 @@ import { IActorEditInput } from '@/components/screens/admin/actor/actor-edit.int
 
 import { IActor } from '@/shared/types/movie.types'
 
-import { getActorsUrl } from '@/configs/api.config'
+import { getPostsUrl} from '@/configs/api.config'
+import { IPost } from '@/shared/types/blog.types'
 
-export const ActorService = {
+
+export const BlogService = {
 	async getBySlug(slug: string) {
-		return axiosClassic.get<IActor>(getActorsUrl(`/by-slug/${slug}`))
+		return axiosClassic.get<IPost>(getPostsUrl(`/${slug}`))
 	},
 
 	async create() {
-		return axios.post<string>(getActorsUrl(''))
+		return axios.post<IPost>(getPostsUrl(''))
 	},
 
 	async update(_id: string, data: IActorEditInput) {
-		return axios.put<string>(getActorsUrl(`/${_id}`), data)
-	},
+		return axios.put<string>(getPostsUrl(`/${_id}`), data)
+	},//есть
 
 	async delete(_id: string) {
-		return axios.delete<string>(getActorsUrl(`/${_id}`))
+		return axios.delete<string>(getPostsUrl(`/${_id}`))
 	},
 
-
 	async getAll(searchTerm?: string) {
-		return axiosClassic.get<IActor[]>(getActorsUrl(``), {
+		return axiosClassic.get<IPost[]>(getPostsUrl(``), {
 			params: searchTerm
 				? {
 						searchTerm,
@@ -34,8 +35,7 @@ export const ActorService = {
 		})
 	},
 
-
 	async getById(_id: string) {
-		return axios.get<IActorEditInput>(getActorsUrl(`/${_id}`))
+		return axios.get<IActorEditInput>(getPostsUrl(`/${_id}`))
 	},
 }

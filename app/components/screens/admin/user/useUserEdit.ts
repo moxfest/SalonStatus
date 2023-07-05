@@ -22,10 +22,10 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
 		{
 			onSuccess({ data }) {
 				setValue('email', data.email)
-				setValue('isAdmin', data.isAdmin)
+				setValue('role.value', data.role.value)
 			},
 			onError(error) {
-				toastError(error, 'Get user')
+				toastError(error, 'ошибка получения пользователя')
 			},
 			enabled: !!query.id,
 		}
@@ -36,10 +36,10 @@ export const useUserEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
 		(data: IUserEditInput) => UserService.updateUser(userId, data),
 		{
 			onError(error) {
-				toastError(error, 'Update user')
+				toastError(error, 'Пользователь не обновлен')
 			},
 			onSuccess() {
-				toastr.success('Update user', 'update was successful')
+				toastr.success('Пользователь обновлен', 'Обновление прошло успешно')
 				push(getAdminUrl('users'))
 			},
 		}

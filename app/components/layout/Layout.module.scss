@@ -8,7 +8,7 @@ $bar-width: 20%;
 	}
 
 	> .center {
-		@apply min-h-screen grow border-b border-b-gray-800;
+		@apply min-h-screen grow border-b border-b-gray-800 px-layout;
 
 	}
 

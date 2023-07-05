@@ -23,7 +23,7 @@ const AuthFields: FC<IAuthFields> = ({
 					required: 'Email is required!',
 					pattern: {
 						value: validEmail,
-						message: 'Please enter a valid email',
+						message: 'Пожалуйста введите корректный E-mail',
 					},
 				})}
 				placeholder="E-mail"
@@ -37,7 +37,7 @@ const AuthFields: FC<IAuthFields> = ({
 								required: 'Password is required!',
 								minLength: {
 									value: 6,
-									message: 'Min length should more 6 symbols!',
+									message: 'Минимальная длина пароля 6 символов',
 								},
 						  }
 						: {}

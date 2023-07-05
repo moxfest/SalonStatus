@@ -5,10 +5,11 @@ import { FC } from 'react'
 
 import styles from './Gallery.module.scss'
 import { IGalleryItemProps } from './gallery.types'
+import {API_URL_UPLOADS} from "@/configs/api.config";
 
-const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
+const GalleryItem: FC<IGalleryItemProps> = ({ item, variant ,contain}) => {
 	return (
-		<Link href={item.url}>
+		<Link href={item.url} >
 			<a
 				className={cn(styles.item, {
 					[styles.withText]: item.content,
@@ -18,10 +19,14 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 			>
 				<Image
 					alt={item.name}
-					src={item.posterPath}
+					src={API_URL_UPLOADS+item.posterPath}
 					layout="fill"
-					draggable={false}
+					draggable={true}
 					priority
+					objectFit={contain?contain:'fill'}
+					objectPosition={'center'}
+
+
 				/>
 				{item.content && (
 					<div className={styles.content}>

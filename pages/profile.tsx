@@ -6,6 +6,6 @@ const ProfilePage: NextPageAuth = () => {
 	return <Profile />
 }
 
-ProfilePage.isOnlyUser = false
+ProfilePage.isOnlyUser = true
 
 export default ProfilePage

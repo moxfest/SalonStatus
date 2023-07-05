@@ -10,6 +10,7 @@ import Layout from '@/components/layout/Layout'
 import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
 
 import { TypeComponentAuthFields } from '@/shared/types/auth.types'
+import {ReactQueryDevtools} from "react-query/devtools";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
